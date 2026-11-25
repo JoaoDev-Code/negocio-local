@@ -1,63 +1,173 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AutoPrime Veículos</title>
-
+    <meta name="description" content="AutoPrime Veículos: encontre seu próximo carro com qualidade, conforto e procedência.">
+    <meta name="theme-color" content="#090909">
+    <title>AutoPrime Veículos | Encontre seu próximo carro</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-
 <body>
+    <header class="header" id="inicio">
+        <nav class="navbar" aria-label="Navegação principal">
+            <a class="logo" href="#inicio" aria-label="AutoPrime - início">AUTO<span>PRIME</span></a>
 
-    <header>
-        <h1>AutoPrime Veículos</h1>
+            <button class="menu-toggle" id="menuToggle" type="button"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+                ☰
+            </button>
 
-        <p>
-            Carros de médio padrão com qualidade e procedência.
-        </p>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="#veiculos">Veículos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#favoritos">Favoritos <span class="nav-fav-count" id="navFavCount">0</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">EXPERIÊNCIA • QUALIDADE • CONFIANÇA</span>
+                <h1>Encontre o carro ideal para <span>sua próxima jornada.</span></h1>
+                <p>Uma seleção especial de veículos para quem valoriza conforto, desempenho e estilo.</p>
+                <a class="btn-principal" href="#veiculos">Explorar veículos <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-note">
+                <span class="hero-note-line"></span>
+                <span>SEU PRÓXIMO CAPÍTULO COMEÇA AQUI</span>
+            </div>
+        </div>
     </header>
 
-    <section class="sobre">
-        <h2>Sobre nós</h2>
+    <main>
+        <section class="sobre section-wrap" id="sobre">
+            <div class="sobre-texto">
+                <span class="section-label">SOBRE A AUTOPRIME</span>
+                <h2>Mais do que carros.<br><span>Novas possibilidades.</span></h2>
+                <p>A AutoPrime é uma vitrine digital demonstrativa criada para facilitar a busca pelo veículo ideal. Explore nosso catálogo, compare características e entre em contato para saber mais.</p>
+            </div>
+            <div class="sobre-destaques">
+                <article class="destaque">
+                    <strong>20+</strong>
+                    <span>modelos no catálogo</span>
+                </article>
+                <article class="destaque">
+                    <strong>100%</strong>
+                    <span>foco na sua escolha</span>
+                </article>
+                <article class="destaque">
+                    <strong>Fácil</strong>
+                    <span>pesquisa e comparação</span>
+                </article>
+            </div>
+        </section>
 
-        <p>
-            A AutoPrime Veículos atua no mercado oferecendo carros de
-            médio padrão, selecionados com rigor, garantindo conforto,
-            segurança e excelente custo-benefício.
-        </p>
-    </section>
+        <section class="veiculos section-wrap" id="veiculos">
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">NOSSO ESTOQUE</span>
+                    <h2>Encontre seu <span>próximo veículo</span></h2>
+                    <p class="descricao-secao">Use os filtros para encontrar o modelo que combina com você.</p>
+                </div>
+                <a class="link-favoritos" href="#favoritos">Ver favoritos <span aria-hidden="true">♡</span></a>
+            </div>
 
-    <section class="carros">
-        <h2>Veículos disponíveis</h2>
+            <div class="filtros" aria-label="Filtros de veículos">
+                <label class="campo campo-pesquisa">
+                    <span>Pesquisar</span>
+                    <input type="search" id="pesquisa" placeholder="Ex.: Honda Civic" autocomplete="off">
+                </label>
 
-        <div class="cards" id="listaCarros"></div>
-    </section>
+                <label class="campo">
+                    <span>Marca</span>
+                    <select id="filtroMarca">
+                        <option value="">Todas as marcas</option>
+                    </select>
+                </label>
 
-    <section class="contato">
-        <h2>Contato</h2>
+                <label class="campo">
+                    <span>Ano</span>
+                    <select id="filtroAno">
+                        <option value="">Todos os anos</option>
+                    </select>
+                </label>
 
-        <p>
-            Fale conosco para mais informações ou agendar uma visita.
-        </p>
+                <label class="campo">
+                    <span>Câmbio</span>
+                    <select id="filtroCambio">
+                        <option value="">Todos</option>
+                        <option value="Automático">Automático</option>
+                        <option value="Manual">Manual</option>
+                    </select>
+                </label>
 
-        <a
-            href="https://wa.me/5500000000000"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Falar no WhatsApp
-        </a>
-    </section>
+                <label class="campo">
+                    <span>Preço</span>
+                    <select id="filtroPreco">
+                        <option value="">Todas as faixas</option>
+                        <option value="ate100">Até R$ 100 mil</option>
+                        <option value="100a120">R$ 100 a 120 mil</option>
+                        <option value="120a150">R$ 120 a 150 mil</option>
+                        <option value="acima150">Acima de R$ 150 mil</option>
+                    </select>
+                </label>
 
-    <footer>
-        <p>© 2026 AutoPrime Veículos</p>
+                <label class="campo">
+                    <span>Ordenar por</span>
+                    <select id="ordenacao">
+                        <option value="recentes">Padrão</option>
+                        <option value="menor-preco">Menor preço</option>
+                        <option value="maior-preco">Maior preço</option>
+                        <option value="menor-ano">Ano mais antigo</option>
+                        <option value="maior-ano">Ano mais novo</option>
+                    </select>
+                </label>
+
+                <button class="btn-limpar" id="limparFiltros" type="button">Limpar filtros</button>
+            </div>
+
+            <div class="resultado-topo">
+                <p class="resultado-filtro" id="contadorCarros" aria-live="polite">Carregando veículos...</p>
+                <span class="catalogo-aviso">Valores e dados ilustrativos</span>
+            </div>
+
+            <div class="cards" id="listaCarros"></div>
+        </section>
+
+        <section class="favoritos section-wrap" id="favoritos">
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">SUA SELEÇÃO</span>
+                    <h2>Veículos <span>favoritos</span></h2>
+                    <p class="descricao-secao">Os carros que você salvar ficam guardados neste navegador.</p>
+                </div>
+            </div>
+            <div class="cards" id="listaFavoritos"></div>
+            <p class="favoritos-vazio" id="favoritosVazio">Você ainda não adicionou nenhum veículo aos favoritos. Use o coração nos cards para salvar.</p>
+        </section>
+
+        <section class="contato section-wrap" id="contato">
+            <span class="section-label">VAMOS CONVERSAR?</span>
+            <h2>O próximo carro pode estar <span>mais perto do que você imagina.</span></h2>
+            <p>Fale com a equipe AutoPrime para tirar dúvidas sobre os veículos do catálogo.</p>
+            <a class="btn-whatsapp" id="contatoWhatsApp" href="#" target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a class="logo" href="#inicio">AUTO<span>PRIME</span></a>
+        <p>© <span id="anoAtual"></span> AutoPrime Veículos. Projeto demonstrativo.</p>
+        <a href="#inicio" class="voltar-topo">Voltar ao topo ↑</a>
     </footer>
 
-    <script src="script.js"></script>
-
+    <div class="modal" id="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+            <button class="fechar-modal" id="fecharModal" type="button" aria-label="Fechar detalhes">×</button>
+            <div id="detalhesCarro"></div>
+        </div>
+    </div>
 </body>
 </html>
